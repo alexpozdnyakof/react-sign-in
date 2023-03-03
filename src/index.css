@@ -1,4 +1,22 @@
 :root {
+  --font-family: Graphik, system-ui, Helvetica, Arial, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-bold: 900;
+
+  --font-size-header: 2.4rem;
+  --font-size-body: 1.6rem;
+  --font-size-caption: 1.2rem;
+
+  --space-micro: 2px;
+  --space-small: 8px;
+  --space-medium: 16px;
+  --space-large: 24px;
+  --space-xlarge: 36px;
+
+  --border-radius-micro: 2px;
+  --border-radius-standart: 4px;
+  --border-radius-full: 8px;
+
   font-family: var(--font-family);
   line-height: 1.5;
   font-size: 62.5%;
@@ -13,17 +31,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --font-weight-normal: 400;
-  --font-weight-bold: 900;
 
-  --font-size-header: 2.4rem;
-  --font-size-body: 1.6rem;
-  --font-size-caption: 1.6rem;
-
-  --space-small: 8px;
-  --space-medium: 16px;
-  --space-large: 24px;
-  --space-xlarge: 36px;
 }
 
 a {
@@ -84,13 +92,12 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    --font-family: Graphik, system-ui, Helvetica, Arial, sans-serif;
     --color-content-primary: #000;
     --color-content-secondary: #777;
     --color-content-negative: red;
-    --fill-background: #f8f8f8;
-    --fill-surface: #fff;
-
+    --fill-surface: #f8f8f8;
+    --fill-on-surface: #fff;
+    --color-separator: #ddd;
   }
   a:hover {
     color: #747bff;

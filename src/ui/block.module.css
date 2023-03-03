@@ -1,0 +1,312 @@
+.block {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-body);
+  font-family: inherit;
+  vertical-align: baseline;
+  background-color: transparent;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+/** MARGINS **/
+.marginTop-micro {
+  margin-top: var(--space-micro);
+}
+.marginTop-small {
+  margin-top: var(--space-small);
+}
+.marginTop-medium {
+  margin-top: var(--space-medium);
+}
+.marginTop-large {
+  margin-top: var(--space-large);
+}
+.marginTop-xlarge {
+  margin-top: var(--space-xlarge);
+}
+
+.marginTop--micro {
+  margin-top: calc(var(--space-micro) * -1);
+}
+.marginTop--small {
+  margin-top: calc(var(--space-small) * -1);
+}
+.marginTop--medium {
+  margin-top: calc(var(--space-medium) * -1);
+}
+.marginTop--large {
+  margin-top: calc(var(--space-large) * -1);
+}
+.marginTop--xlarge {
+  margin-top: calc(var(--space-xlarge) * -1);
+}
+
+.marginRight-micro {
+  margin-right: var(--space-micro);
+}
+.marginRight-small {
+  margin-right: var(--space-small);
+}
+.marginRight-medium {
+  margin-right: var(--space-medium);
+}
+.marginRight-large {
+  margin-right: var(--space-large);
+}
+.marginRight-xlarge {
+  margin-right: var(--space-xlarge);
+}
+
+.marginRight--micro {
+  margin-right: calc(var(--space-micro) * -1);
+}
+.marginRight--small {
+  margin-right: calc(var(--space-small) * -1);
+}
+.marginRight--medium {
+  margin-right: calc(var(--space-medium) * -1);
+}
+.marginRight--large {
+  margin-right: calc(var(--space-large) * -1);
+}
+.marginRight--xlarge {
+  margin-right: calc(var(--space-xlarge) * -1);
+}
+
+.marginBottom-micro {
+  margin-bottom: var(--space-micro);
+}
+.marginBottom-small {
+  margin-bottom: var(--space-small);
+}
+.marginBottom-medium {
+  margin-bottom: var(--space-medium);
+}
+.marginBottom-large {
+  margin-bottom: var(--space-large);
+}
+.marginBottom-xlarge {
+  margin-bottom: var(--space-xlarge);
+}
+
+.marginBottom--micro {
+  margin-bottom: calc(var(--space-micro) * -1);
+}
+.marginBottom--small {
+  margin-bottom: calc(var(--space-small) * -1);
+}
+.marginBottom--medium {
+  margin-bottom: calc(var(--space-medium) * -1);
+}
+.marginBottom--large {
+  margin-bottom: calc(var(--space-large) * -1);
+}
+.marginBottom--xlarge {
+  margin-bottom: calc(var(--space-xlarge) * -1);
+}
+
+.marginLeft-micro {
+  margin-left: var(--space-micro);
+}
+.marginLeft-small {
+  margin-left: var(--space-small);
+}
+.marginLeft-medium {
+  margin-left: var(--space-medium);
+}
+.marginLeft-large {
+  margin-left: var(--space-large);
+}
+.marginLeft-xlarge {
+  margin-left: var(--space-xlarge);
+}
+
+.marginLeft--micro {
+  margin-left: calc(var(--space-micro) * -1);
+}
+.marginLeft--small {
+  margin-left: calc(var(--space-small) * -1);
+}
+.marginLeft--medium {
+  margin-left: calc(var(--space-medium) * -1);
+}
+.marginLeft--large {
+  margin-left: calc(var(--space-large) * -1);
+}
+.marginLeft--xlarge {
+  margin-left: calc(var(--space-xlarge) * -1);
+}
+
+.margin-auto {
+  margin: 'auto';
+}
+.margin-micro {
+  margin: var(--space-micro);
+}
+.margin-small {
+  margin: var(--space-small);
+}
+.margin-medium {
+  margin: var(--space-medium);
+}
+.margin-large {
+  margin: var(--space-large);
+}
+.margin-xlarge {
+  margin: var(--space-xlarge);
+}
+
+.margin--micro {
+  margin: calc(var(--space-micro) * -1);
+}
+.margin--small {
+  margin: calc(var(--space-small) * -1);
+}
+.margin--medium {
+  margin: calc(var(--space-medium) * -1);
+}
+.margin--large {
+  margin: calc(var(--space-large) * -1);
+}
+.margin--xlarge {
+  margin: calc(var(--space-xlarge) * -1);
+}
+
+/** PADDINGS **/
+.paddingTop-micro {
+  padding-top: var(--space-micro);
+}
+.paddingTop-small {
+  padding-top: var(--space-small);
+}
+.paddingTop-medium {
+  padding-top: var(--space-medium);
+}
+.paddingTop-large {
+  padding-top: var(--space-large);
+}
+.paddingTop-xlarge {
+  padding-top: var(--space-xlarge);
+}
+
+.paddingRight-micro {
+  padding-right: var(--space-micro);
+}
+.paddingRight-small {
+  padding-right: var(--space-small);
+}
+.paddingRight-medium {
+  padding-right: var(--space-medium);
+}
+.paddingRight-large {
+  padding-right: var(--space-large);
+}
+.paddingRight-xlarge {
+  padding-right: var(--space-xlarge);
+}
+
+.paddingBottom-micro {
+  padding-bottom: var(--space-micro);
+}
+.paddingBottom-small {
+  padding-bottom: var(--space-small);
+}
+.paddingBottom-medium {
+  padding-bottom: var(--space-medium);
+}
+.paddingBottom-large {
+  padding-bottom: var(--space-large);
+}
+.paddingBottom-xlarge {
+  padding-bottom: var(--space-xlarge);
+}
+
+.paddingLeft-micro {
+  padding-left: var(--space-micro);
+}
+.paddingLeft-small {
+  padding-left: var(--space-small);
+}
+.paddingLeft-medium {
+  padding-left: var(--space-medium);
+}
+.paddingLeft-large {
+  padding-left: var(--space-large);
+}
+.paddingLeft-xlarge {
+  padding-left: var(--space-xlarge);
+}
+
+.padding-micro {
+  padding: var(--space-micro);
+}
+.padding-small {
+  padding: var(--space-small);
+}
+.padding-medium {
+  padding: var(--space-medium);
+}
+.padding-large {
+  padding: var(--space-large);
+}
+.padding-xlarge {
+  padding: var(--space-xlarge);
+}
+
+.paddingX-micro {
+  padding: 0 var(--space-micro);
+}
+.paddingX-small {
+  padding: 0 var(--space-small);
+}
+.paddingX-medium {
+  padding: 0 var(--space-medium);
+}
+.paddingX-large {
+  padding: 0 var(--space-large);
+}
+.paddingX-xlarge {
+  padding: 0 var(--space-xlarge);
+}
+
+.paddingY-micro {
+  padding: var(--space-micro) 0;
+}
+.paddingY-small {
+  padding: var(--space-small) 0;
+}
+.paddingY-medium {
+  padding: var(--space-medium) 0;
+}
+.paddingY-large {
+  padding: var(--space-large) 0;
+}
+.paddingY-xlarge {
+  padding: var(--space-xlarge) 0;
+}
+
+/** BORDER **/
+
+.border-primary {
+  border: 1px solid var(--color-separator);
+}
+.borderRadius-micro {
+  border-radius: var(--border-radius-micro);
+}
+.borderRadius-standart {
+  border-radius: var(--border-radius-standart);
+}
+.borderRadius-full {
+  border-radius: var(--border-radius-full);
+}
+
+/** BACKGROUND **/
+
+.backgroundColor-surface {
+  background-color: var(--fill-surface);
+}
+.backgroundColor-on-surface {
+  background-color: var(--fill-on-surface);
+}

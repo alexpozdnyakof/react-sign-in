@@ -1,2 +1,2 @@
-export { default as Poly } from './poly';
 export { default as Text } from './text';
+export { default as Block } from './block';

@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { forwardRef } from 'react';
-import Poly, { PolyComponentProps } from './poly';
+import Block, { WithBlockProps } from './block';
 import styles from './text.module.css';
 
 function fromStyles(
@@ -34,11 +33,11 @@ const Text = forwardRef(function Text(
     weight = 'regular',
     children,
     ...props
-  }: PolyComponentProps<'div', TextProps>,
+  }: WithBlockProps<'div', TextProps>,
   ref: typeof props.ref,
 ) {
   return (
-    <Poly
+    <Block
       className={[
         styles['text'],
         tone != 'normal' ? fromStyles(styles, 'tone', tone) : null,
@@ -49,7 +48,7 @@ const Text = forwardRef(function Text(
       {...props}
     >
       {children}
-    </Poly>
+    </Block>
   );
 });
 
