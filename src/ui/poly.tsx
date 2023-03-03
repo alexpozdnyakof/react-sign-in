@@ -7,18 +7,28 @@ import clsx from 'clsx';
 
 type OwnProps<T extends ElementType = ElementType> = {
   as?: T;
-  className?: string | string[] | { [key: string]: boolean };
+  className?: Parameters<typeof clsx>[number];
 };
 
-type PolyProps<E extends ElementType> = OwnProps<E> & Omit<ComponentProps<E>, keyof OwnProps>;
+type PolyProps<ComponentType extends ElementType> = OwnProps<ComponentType> &
+  Omit<ComponentProps<ComponentType>, keyof OwnProps>;
 
-type PolyFn = <ComponentType extends ElementType = 'div'>(props: PolyProps<ComponentType>) => ReactElement | null;
+type PolyFn = <ComponentType extends ElementType = 'div'>(
+  props: PolyProps<ComponentType>,
+) => ReactElement | null;
 
 const Poly: PolyFn = forwardRef(function Poly(
   { as: Element = 'div', className: originalClassName, ...props }: OwnProps,
   ref: Ref<Element>,
 ) {
-  return createElement(Element, { ...props, ref, className: clsx(originalClassName) });
+  return createElement(Element, {
+    ...props,
+    ref,
+    className: clsx(originalClassName),
+  });
 });
 
 export default Poly;
+
+export type PolyComponentProps<ComponentType extends ElementType, P> = P &
+  PolyProps<ComponentType>;

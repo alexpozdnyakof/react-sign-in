@@ -1,17 +1,29 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family);
   line-height: 1.5;
-  font-weight: 400;
-
+  font-size: 62.5%;
+  font-weight: var(--font-weight-normal);
+  color: var(--color-content);
+  background-color: var(--fill-background);
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 900;
+
+  --font-size-header: 2.4rem;
+  --font-size-body: 1.6rem;
+  --font-size-caption: 1.6rem;
+
+  --space-small: 8px;
+  --space-medium: 16px;
+  --space-large: 24px;
+  --space-xlarge: 36px;
 }
 
 a {
@@ -25,21 +37,22 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-size: 1.6rem;
+  text-rendering: optimizeSpeed;
 }
 
+/** Text **/
 h1 {
-  font-size: 3.2em;
+  font-size: 3.2rem;
   line-height: 1.1;
 }
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.6rem 1.2rem;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -55,10 +68,29 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-content-primary: rgba(255, 255, 255, 0.87);
+    --fill-background: #242424;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --font-family: Graphik, system-ui, Helvetica, Arial, sans-serif;
+    --color-content-primary: #000;
+    --color-content-secondary: #777;
+    --color-content-negative: red;
+    --fill-background: #f8f8f8;
+    --fill-surface: #fff;
+
   }
   a:hover {
     color: #747bff;
@@ -66,4 +98,30 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
