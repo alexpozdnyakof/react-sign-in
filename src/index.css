@@ -22,7 +22,7 @@
   font-size: 62.5%;
   font-weight: var(--font-weight-normal);
   color: var(--color-content);
-  background-color: var(--fill-background);
+  background-color: var(--fill-surface);
   color-scheme: light dark;
 
   font-synthesis: none;
@@ -78,8 +78,12 @@ button:focus-visible {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-content-primary: rgba(255, 255, 255, 0.87);
-    --fill-background: #242424;
+    --color-content-primary: #000;
+    --color-content-secondary: #777;
+    --color-content-negative: red;
+    --fill-surface: #f8f8f8;
+    --fill-on-surface: #fff;
+    --color-separator: #ddd;
   }
 
   a:hover {
