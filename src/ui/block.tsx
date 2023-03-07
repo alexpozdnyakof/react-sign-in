@@ -1,14 +1,8 @@
-import {
-  ComponentProps,
-  createElement,
-  ElementType,
-  forwardRef,
-  ReactElement,
-  Ref,
-} from 'react';
 import clsx from 'clsx';
+import { createElement } from 'react';
 import styles from './block.module.css';
 import { fromStyles } from './from-styles';
+import { poly } from './polymorphic';
 
 /**
  * Atomic Polymorphic Component who shared
@@ -43,19 +37,7 @@ type BlockProps = {
   backgroundColor?: 'surface' | 'on-surface';
 } & Partial<MarginAndPadding & Border>;
 
-type OwnProps<T extends ElementType = ElementType> = {
-  as?: T;
-  className?: Parameters<typeof clsx>[number];
-} & BlockProps;
-
-type PolyProps<ComponentType extends ElementType> = OwnProps<ComponentType> &
-  Omit<ComponentProps<ComponentType>, keyof OwnProps>;
-
-type PolyFn = <ComponentType extends ElementType = 'div'>(
-  props: PolyProps<ComponentType>,
-) => ReactElement | null;
-
-const Block: PolyFn = forwardRef(function Block(
+const Block = poly<BlockProps>(function Block(
   {
     as: Element = 'div',
     className: originalClassName,
@@ -75,8 +57,8 @@ const Block: PolyFn = forwardRef(function Block(
     border,
     backgroundColor,
     ...props
-  }: OwnProps,
-  ref: Ref<Element>,
+  },
+  ref,
 ) {
   const marginTop = firstDefined(_marginTop, _margin);
   const marginRight = firstDefined(_marginRight, _margin);
@@ -91,7 +73,7 @@ const Block: PolyFn = forwardRef(function Block(
   return createElement(Element, {
     ...props,
     ref,
-    className: clsx(
+    className: clsx([
       originalClassName,
       fromStyles(styles, 'marginTop', marginTop),
       fromStyles(styles, 'marginRight', marginRight),
@@ -104,7 +86,7 @@ const Block: PolyFn = forwardRef(function Block(
       fromStyles(styles, 'borderRadius', borderRadius),
       fromStyles(styles, 'border', border),
       fromStyles(styles, 'backgroundColor', backgroundColor),
-    ),
+    ]),
   });
 });
 
@@ -115,8 +97,5 @@ function firstDefined<T extends Space | SpaceWithNegatives | 'auto'>(
 ): T {
   return propA ?? propB ?? (propC as T);
 }
-
-export type WithBlockProps<ComponentType extends ElementType, P> = P &
-  PolyProps<ComponentType>;
 
 export default Block;

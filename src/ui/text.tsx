@@ -1,5 +1,5 @@
-import { forwardRef } from 'react';
-import Block, { WithBlockProps } from './block';
+import Block from './block';
+import { poly } from './polymorphic';
 import styles from './text.module.css';
 
 function fromStyles(
@@ -26,15 +26,16 @@ type TextProps = {
   weight?: 'regular' | 'bold';
 };
 
-const Text = forwardRef(function Text(
+const Text = poly<TextProps>(function Text(
   {
     tone = 'normal',
     size = 'body',
     weight = 'regular',
     children,
+    as,
     ...props
-  }: WithBlockProps<'div', TextProps>,
-  ref: typeof props.ref,
+  },
+  ref,
 ) {
   return (
     <Block
@@ -44,6 +45,7 @@ const Text = forwardRef(function Text(
         size != 'body' ? fromStyles(styles, 'size', size) : null,
         weight != 'regular' ? fromStyles(styles, 'weight', weight) : null,
       ]}
+      as={as}
       ref={ref}
       {...props}
     >
