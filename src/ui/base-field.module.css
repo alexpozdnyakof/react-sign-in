@@ -1,0 +1,21 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.stack > * + * {
+  margin-top: var(--space-small);
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+}
