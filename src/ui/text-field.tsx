@@ -4,13 +4,19 @@ type TextFieldProps = ReusableFormFieldProps;
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   function TextField(
-    { label, message, tone, type = 'text', ...inputProps },
+    { label, message, tone, type = 'text', placeholder = ' ', ...inputProps },
     ref,
   ) {
     return (
       <FormField label={label} message={message} tone={tone}>
         {(drilled) => (
-          <input type={type} ref={ref} {...inputProps} {...drilled} />
+          <input
+            type={type}
+            ref={ref}
+            placeholder={placeholder}
+            {...inputProps}
+            {...drilled}
+          />
         )}
       </FormField>
     );

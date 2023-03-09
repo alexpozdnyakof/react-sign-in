@@ -15,10 +15,11 @@ function App() {
           <Stack space="medium">
             <Stack space="small">
               <TextField
+                tone="negative"
+                message="Error"
                 label="Phone number, username, or email"
-                placeholder=" "
               />
-              <TextField label="Password" type="password" placeholder=" " />
+              <TextField label="Password" type="password" />
             </Stack>
             <Button>Log in</Button>
           </Stack>

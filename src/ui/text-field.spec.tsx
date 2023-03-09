@@ -65,4 +65,12 @@ describe('TextField Component', () => {
     await userEvent.type(textFieldElement, 'myusername');
     expect(textFieldElement).toHaveValue('myusername');
   });
+
+  it('should provide default placeholder', () => {
+    render(<TextField label="Username" />);
+    expect(screen.getByLabelText('Username')).toHaveAttribute(
+      'placeholder',
+      ' ',
+    );
+  });
 });
