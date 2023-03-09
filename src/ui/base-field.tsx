@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { InputHTMLAttributes, ReactNode, useId } from 'react';
 import styles from './base-field.module.css';
+import Stack from './stack';
 
 type FormFieldProps = {
   tone?: 'normal' | 'negative';
@@ -29,7 +30,7 @@ export default function FormField({
   const describedBy = `${generatedId}-message`;
   const ariaInvalid = tone === 'negative' ? true : undefined;
   return (
-    <div className={styles['stack']}>
+    <Stack space="xsmall">
       <div className={styles['container']}>
         {children({
           id: generatedId,
@@ -55,6 +56,6 @@ export default function FormField({
           {message}
         </p>
       )}
-    </div>
+    </Stack>
   );
 }

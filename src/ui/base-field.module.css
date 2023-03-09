@@ -5,7 +5,7 @@
 }
 
 .stack > * + * {
-  margin-top: var(--space-small);
+  margin-top: var(--rs-space-xsmall);
 }
 
 .label {
@@ -40,6 +40,7 @@
 
 .field-message {
   font-size: var(--font-size-caption);
+  padding-left: var(--rs-space-micro);
 }
 
 .tone-negative {
