@@ -1,14 +1,12 @@
 :root {
-  --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
-    'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
   --rs-font-weight-normal: 400;
   --rs-font-weight-semibold: 700;
   --rs-font-weight-bold: 900;
 
-  -font-size-header: 2.4rem;
-  --font-size-body: 1.4rem;
+  --font-size-header: 2.4rem;
+  --font-size-body: 1.6rem;
   --font-size-caption: 1.2rem;
 
   --rs-space-micro: 2px;
@@ -37,8 +35,8 @@
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
   -webkit-text-size-adjust: 100%;
 }
 
@@ -55,24 +53,22 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-size: 1.6rem;
   text-rendering: optimizeSpeed;
+
+  font-size: var(--font-size-body);
 }
 
 /** Text **/
-h1 {
-  font-size: 3.2rem;
-  line-height: 1.1;
-}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-content-primary: #000;
-    --color-content-secondary: #777;
+    --color-content-primary: #262626;
+    --rs-color-content-secondary: 142, 142, 142;
     --color-content-negative: red;
-    --fill-surface: #f8f8f8;
-    --fill-on-surface: #fff;
-    --color-separator: #ddd;
+    --fill-surface: #fff;
+    --fill-on-surface: #fafafa;
+    --rs-color-separator: #ddd;
   }
 
   a:hover {
@@ -82,12 +78,12 @@ h1 {
 
 @media (prefers-color-scheme: light) {
   :root {
-    --color-content-primary: #000;
-    --color-content-secondary: #777;
+    --color-content-primary: #262626;
+    --rs-color-content-secondary: 142, 142, 142;
     --color-content-negative: red;
-    --fill-surface: #f8f8f8;
-    --fill-on-surface: #fff;
-    --color-separator: #ddd;
+    --fill-surface: #fff;
+    --fill-on-surface: #fafafa;
+    --rs-color-separator: #ddd;
   }
   a:hover {
     color: #747bff;
@@ -119,4 +115,10 @@ blockquote,
 dl,
 dd {
   margin: 0;
+}
+
+
+h1{
+  font-size: 2.4rem;
+  margin-bottom: var(--rs-space-medium);
 }
