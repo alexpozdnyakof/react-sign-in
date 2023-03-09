@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'vitest-axe';
 import Button from './button';
 
 describe('Button', () => {
@@ -41,5 +42,12 @@ describe('Button', () => {
 
     rerender(<Button type="submit">Click</Button>);
     expect(btnElement).toHaveAttribute('type', 'submit');
+  });
+
+  it('should render with no a11y violations', async () => {
+    const { container } = render(<Button>Click</Button>);
+    const result = await axe(container);
+
+    expect(result).toHaveNoViolations();
   });
 });

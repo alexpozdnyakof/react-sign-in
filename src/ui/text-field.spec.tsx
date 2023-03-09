@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TextField from './text-field';
+import { axe } from 'vitest-axe';
 
 describe('TextField Component', () => {
   it('should render component', () => {
@@ -72,5 +73,12 @@ describe('TextField Component', () => {
       'placeholder',
       ' ',
     );
+  });
+
+  it('should render with no a11y violations', async () => {
+    const { container } = render(<TextField label="Username" />);
+    const result = await axe(container);
+
+    expect(result).toHaveNoViolations();
   });
 });
