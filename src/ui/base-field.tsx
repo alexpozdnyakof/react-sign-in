@@ -31,7 +31,12 @@ export default function FormField({
   const ariaInvalid = tone === 'negative' ? true : undefined;
   return (
     <Stack space="xsmall">
-      <div className={styles['container']}>
+      <div
+        className={clsx([
+          styles['container'],
+          tone == 'negative' ? styles['tone_negative'] : null,
+        ])}
+      >
         {children({
           id: generatedId,
           'aria-describedby': describedBy,
@@ -49,7 +54,7 @@ export default function FormField({
         <p
           className={clsx([
             styles['field-message'],
-            tone == 'negative' ? styles['tone-negative'] : null,
+            tone == 'negative' ? styles['field-message_negative'] : null,
           ])}
           id={describedBy}
         >

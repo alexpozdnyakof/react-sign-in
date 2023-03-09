@@ -54,7 +54,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-
+  background-color: #fafafa;
   font-size: var(--font-size-body);
 }
 
@@ -121,4 +121,5 @@ dd {
 h1{
   font-size: 2.4rem;
   margin-bottom: var(--rs-space-medium);
+  color: var(--color-content-primary);
 }

@@ -78,3 +78,12 @@ input {
     calc(var(--rs-space-small) - 1px)
     var(--rs-space-small);
 }
+
+
+.tone_negative {
+  border-color: var(--color-content-negative)
+}
+
+.field-message_negative {
+  color: var(--color-content-negative)
+}
