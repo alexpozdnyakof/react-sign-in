@@ -4,9 +4,9 @@
   color: rgb(var(--rs-button-primary-content));
   background-color: rgb(var(--rs-button-primary-fill));
   transition: all .15s ease-in-out;
-  padding: calc( var(--rs-space-xsmall) - 1px) var(--rs-space-medium);
+  padding: calc( var(--rs-space-xsmall) + 1px) var(--rs-space-medium);
   border-radius: var(--rs-border-radius-full);
-  border: 1px solid transparent;
+  border: none;
   font-weight: var(--rs-font-weight-semibold);
 
 }

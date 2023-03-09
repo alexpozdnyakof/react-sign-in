@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import { InputHTMLAttributes, ReactNode, useId } from 'react';
 import styles from './base-field.module.css';
-import Block from './block';
-import Text from './text';
 
 type FormFieldProps = {
   tone?: 'normal' | 'negative';
@@ -33,6 +31,11 @@ export default function FormField({
   return (
     <div className={styles['stack']}>
       <div className={styles['container']}>
+        {children({
+          id: generatedId,
+          'aria-describedby': describedBy,
+          'aria-invalid': ariaInvalid,
+        })}
         {label !== undefined && (
           <div className={styles['label-container']}>
             <label htmlFor={generatedId} className={styles['label']}>
@@ -40,11 +43,6 @@ export default function FormField({
             </label>
           </div>
         )}
-        {children({
-          id: generatedId,
-          'aria-describedby': describedBy,
-          'aria-invalid': ariaInvalid,
-        })}
       </div>
       {message !== undefined && (
         <p
