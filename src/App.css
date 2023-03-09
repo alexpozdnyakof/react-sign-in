@@ -43,13 +43,12 @@
 }
 .surface {
   width: 350px;
-  height: 720px;
   border-radius: 1.2rem;
   border: 1px solid var(--rs-color-separator);
   border-radius: var(--rs-border-radius-micro);
-  background-color: #fff;
+  background-color: var(--fill-on-surface);
 
-  padding-top: 48px;
+  padding: 24px 0;
 }
 
 .stretch {
@@ -59,5 +58,11 @@
   flex-direction: column;
   align-items: stretch;
   flex: 0 0 auto;
+}
+
+.signup{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 

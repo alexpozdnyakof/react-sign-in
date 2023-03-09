@@ -21,7 +21,7 @@
   width: 100%;
   border: 1px solid var(--rs-color-separator);
   border-radius: var(--rs-border-radius-standart);
-  background-color: var(--fill-on-surface);
+  background-color: var(--fill-input);
   padding: var(--rs-space-micro) 0;
 }
 

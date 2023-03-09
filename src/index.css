@@ -7,7 +7,7 @@
 
   --font-size-header: 2.4rem;
   --font-size-body: 1.6rem;
-  --font-size-caption: 1.2rem;
+  --font-size-caption: 1.3rem;
 
   --rs-space-micro: 2px;
   --rs-space-xsmall: 4px;
@@ -41,7 +41,7 @@
 }
 
 a {
-  font-weight: 500;
+  font-weight: var(--rs-font-weight-semibold);
   color: #646cff;
   text-decoration: inherit;
 }
@@ -54,8 +54,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  background-color: #fafafa;
+  background-color: var(--fil-surface);
   font-size: var(--font-size-body);
+  color: var(--color-content-primary);
 }
 
 /** Text **/
@@ -63,12 +64,13 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-content-primary: #262626;
+    --color-content-primary: #fff;
     --rs-color-content-secondary: 142, 142, 142;
     --color-content-negative: red;
-    --fill-surface: #fff;
-    --fill-on-surface: #fafafa;
-    --rs-color-separator: #ddd;
+    --fill-surface: #111;
+    --fill-input: #000;
+    --fill-on-surface: #222;
+    --rs-color-separator: #333;
   }
 
   a:hover {
@@ -82,7 +84,8 @@ body {
     --rs-color-content-secondary: 142, 142, 142;
     --color-content-negative: red;
     --fill-surface: #fff;
-    --fill-on-surface: #fafafa;
+    --fill-input: #fafafa;
+    --fill-on-surface: #fff;
     --rs-color-separator: #ddd;
   }
   a:hover {
