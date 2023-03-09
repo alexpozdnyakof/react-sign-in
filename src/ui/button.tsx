@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { forwardRef, ReactNode } from 'react';
 import styles from './button.module.css';
 type ButtonProps = {
@@ -10,8 +9,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   ref,
 ) {
   return (
-    <button className={clsx([styles['button']])} ref={ref} {...props}>
-      <div className={clsx([styles['button-content']])}>{children}</div>
+    <button className={styles['button']} ref={ref} {...props}>
+      <div className={styles['button-content']}>{children}</div>
     </button>
   );
 });
