@@ -19,3 +19,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.field-message {
+  font-size: var(--font-size-caption);
+}
+
+.tone-negative {
+  color: var(--color-content-negative)
+}

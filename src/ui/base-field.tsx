@@ -1,16 +1,18 @@
+import clsx from 'clsx';
 import { InputHTMLAttributes, ReactNode, useId } from 'react';
 import styles from './base-field.module.css';
 import Block from './block';
 import Text from './text';
 
 type FormFieldProps = {
-  /**
-   * @default 'normal'
-   */
   tone?: 'normal' | 'negative';
   message?: ReactNode;
   label?: ReactNode;
-  children: (props: { id: string; 'aria-describedby': string }) => ReactNode;
+  children: (props: {
+    id: string;
+    'aria-describedby'?: string;
+    'aria-invalid'?: boolean;
+  }) => ReactNode;
 };
 
 export type ReusableFormFieldProps = Omit<
@@ -27,24 +29,34 @@ export default function FormField({
 }: FormFieldProps) {
   const generatedId = useId();
   const describedBy = `${generatedId}-message`;
-
+  const ariaInvalid = tone === 'negative' ? true : undefined;
   return (
-    <Block className={styles['stack']}>
-      <Block className={styles['container']}>
+    <div className={styles['stack']}>
+      <div className={styles['container']}>
         {label !== undefined && (
-          <Block marginBottom="small" className={styles['label-container']}>
-            <Text as="label" htmlFor={generatedId} className={styles['label']}>
+          <div className={styles['label-container']}>
+            <label htmlFor={generatedId} className={styles['label']}>
               {label}
-            </Text>
-          </Block>
+            </label>
+          </div>
         )}
-        {children({ id: generatedId, 'aria-describedby': describedBy })}
-      </Block>
+        {children({
+          id: generatedId,
+          'aria-describedby': describedBy,
+          'aria-invalid': ariaInvalid,
+        })}
+      </div>
       {message !== undefined && (
-        <Text as="p" size="caption" tone={tone} id={describedBy}>
+        <p
+          className={clsx([
+            styles['field-message'],
+            tone == 'negative' ? styles['tone-negative'] : null,
+          ])}
+          id={describedBy}
+        >
           {message}
-        </Text>
+        </p>
       )}
-    </Block>
+    </div>
   );
 }

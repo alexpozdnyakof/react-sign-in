@@ -1,5 +1,6 @@
+import clsx from 'clsx';
 import FormField, { ReusableFormFieldProps } from './base-field';
-
+import styles from './text-field.module.css';
 type TextFieldProps = ReusableFormFieldProps;
 
 export default function TextField({
@@ -11,7 +12,16 @@ export default function TextField({
 }: TextFieldProps) {
   return (
     <FormField label={label} message={message} tone={tone}>
-      {(drilled) => <input type={type} {...inputProps} {...drilled} />}
+      {(drilled) => (
+        <div
+          className={clsx([
+            styles['input-wrapper'],
+            tone === 'negative' ? styles['input-wrapper_negative'] : null,
+          ])}
+        >
+          <input type={type} {...inputProps} {...drilled} />
+        </div>
+      )}
     </FormField>
   );
 }

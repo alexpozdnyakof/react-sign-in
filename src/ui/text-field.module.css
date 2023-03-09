@@ -1,0 +1,18 @@
+.input-wrapper {
+  width: 100%;
+}
+.input-wrapper_negative{
+  color: var(--cont)
+}
+
+.input-wrapper input {
+  color: var(--color-content-primary);
+  flex: 1;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  font-size: var(--font-size-body);
+  margin: 0;
+}

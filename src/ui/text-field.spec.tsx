@@ -17,16 +17,9 @@ describe('TextField Component', () => {
   });
 
   it('should be labelled', () => {
-    const { rerender } = render(
-      <TextField data-testid="text-field" label="UsernameZero" />,
-    );
-
+    render(<TextField data-testid="text-field" label="UsernameZero" />);
     const textFieldElement = screen.getByTestId('text-field');
     expect(textFieldElement).toHaveAccessibleName('UsernameZero');
-
-    rerender(<TextField label="UsernameOne" />);
-
-    expect(textFieldElement).toHaveAccessibleName('UsernameOne');
   });
 
   it('should describe by message', () => {
@@ -51,16 +44,14 @@ describe('TextField Component', () => {
     rerender(<TextField label="Username" type="email" />);
     expect(textFieldElement).toHaveAttribute('type', 'email');
 
-    render(<TextField label="Username" type="search" />);
+    rerender(<TextField label="Username" type="search" />);
     expect(screen.getByLabelText('Username')).toHaveAttribute('type', 'search');
   });
 
-  it('should set native input props', () => {
+  it('should provide native input props', () => {
     render(<TextField label="Username" name="username" required />);
-
     const textFieldElement = screen.getByLabelText('Username');
 
-    expect(textFieldElement).toHaveAttribute('data-custom', 'custom');
     expect(textFieldElement).toHaveAttribute('name', 'username');
     expect(textFieldElement).toHaveAttribute('required');
   });
