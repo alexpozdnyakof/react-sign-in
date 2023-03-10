@@ -1,6 +1,5 @@
 .button {
-  --webkit-appearance: none;
-
+  appearance: none;
   font-family: inherit;
   color: oklch(var(--rs-button-primary-content));
   background-color: oklch(var(--rs-button-primary-fill));

@@ -1,24 +1,24 @@
 import clsx from 'clsx';
-import { InputHTMLAttributes, ReactNode, useId } from 'react';
-import styles from './base-field.module.css';
+import { useId } from 'react';
+import styles from './form-field.module.css';
 import Stack from './stack';
 
 type FormFieldProps = {
   tone?: 'normal' | 'negative';
-  message?: ReactNode;
-  label?: ReactNode;
+  message?: React.ReactNode;
+  label?: React.ReactNode;
   children: (props: {
     id: string;
     'aria-describedby'?: string;
     'aria-invalid'?: boolean;
-  }) => ReactNode;
+  }) => React.ReactNode;
 };
 
 export type ReusableFormFieldProps = Omit<
   FormFieldProps,
   'children' | 'className' | 'type'
 > &
-  Omit<InputHTMLAttributes<HTMLInputElement>, 'className'>;
+  Omit<React.ComponentProps<'input'>, 'className'>;
 
 export default function FormField({
   tone = 'normal',
@@ -42,6 +42,7 @@ export default function FormField({
           'aria-describedby': describedBy,
           'aria-invalid': ariaInvalid,
         })}
+
         {label !== undefined && (
           <label htmlFor={generatedId} className={styles['label']}>
             {label}

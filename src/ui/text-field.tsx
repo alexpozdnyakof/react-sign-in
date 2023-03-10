@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import FormField, { ReusableFormFieldProps } from './base-field';
+import FormField, { ReusableFormFieldProps } from './form-field';
 type TextFieldProps = ReusableFormFieldProps;
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
