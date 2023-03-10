@@ -1,29 +1,16 @@
 import './App.css';
-import Button from './ui/button';
 import Stack from './ui/stack';
-import TextField from './ui/text-field';
+import SignInForm from './widgets/sign-in-form';
 
 function App() {
   return (
-    <div className="signInPage">
+    <div className="sign-in-page">
       <Stack space="medium">
         <div className="surface">
           <div className="stretch">
             <h1> Welcome back</h1>
           </div>
-
-          <div className="stretch">
-            <Stack space="medium">
-              <Stack space="small">
-                <TextField
-                  tone="negative"
-                  label="Phone number, username, or email"
-                />
-                <TextField label="Password" type="password" />
-              </Stack>
-              <Button>Log in</Button>
-            </Stack>
-          </div>
+          <SignInForm />
         </div>
         <div className="surface">
           <div className="signup">

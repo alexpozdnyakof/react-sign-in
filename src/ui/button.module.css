@@ -1,8 +1,10 @@
 .button {
   --webkit-appearance: none;
+
   font-family: inherit;
   color: rgb(var(--rs-button-primary-content));
   background-color: rgb(var(--rs-button-primary-fill));
+  background-color: oklch(67.94% 0.17 228.71);
   transition: all .15s ease-in-out;
   padding: calc( var(--rs-space-xsmall) + 1px) var(--rs-space-medium);
   border-radius: var(--rs-border-radius-full);
@@ -11,10 +13,9 @@
 
 }
 
-
 .button:hover,
 .button:focus{
-  background-color: rgb(var(--rs-button-primary-hover));
+  background-color: oklch(60.94% 0.17 228.71);
 }
 
 button:focus,

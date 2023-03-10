@@ -54,7 +54,7 @@ export default function FormField({
         <p
           className={clsx([
             styles['field-message'],
-            tone == 'negative' ? styles['field-message_negative'] : null,
+            tone == 'negative' ? styles['field-message-negative'] : null,
           ])}
           id={describedBy}
         >

@@ -23,6 +23,11 @@
   border-radius: var(--rs-border-radius-standart);
   background-color: var(--fill-input);
   padding: var(--rs-space-micro) 0;
+  transition: transform, border-color ease-out .1s;
+}
+
+.container:focus-within {
+  border-color: rgb(var(--rs-button-primary-fill));
 }
 
 .label-container{
@@ -44,22 +49,12 @@
 }
 
 .tone-negative {
+  border-color: var(--color-content-negative);
+}
+
+.field-message-negative {
   color: var(--color-content-negative)
 }
-
-input:not(:placeholder-shown) + .label-container {
-  transform: translateY(-125%) scale(1);
-}
-
-input:not(:placeholder-shown) {
-  padding: calc(var(--rs-space-medium) - 2px) 0  var(--rs-space-micro) var(--rs-space-small);
-}
-
-
-.input-wrapper{
-  width: 100%;
-}
-
 
 input {
   color: var(--color-content-primary);
@@ -79,11 +74,14 @@ input {
     var(--rs-space-small);
 }
 
-
-.tone_negative {
-  border-color: var(--color-content-negative)
+input:not(:placeholder-shown) + .label-container {
+  transform: translateY(-125%) scale(.9);
 }
 
-.field-message_negative {
-  color: var(--color-content-negative)
+input:not(:placeholder-shown) {
+  padding: calc(var(--rs-space-medium) - 2px) 0  var(--rs-space-micro) var(--rs-space-small);
+}
+
+.input-wrapper{
+  width: 100%;
 }

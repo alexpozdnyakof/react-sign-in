@@ -1,14 +1,11 @@
 :root {
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-
+  --font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, helvetica, arial, sans-serif;
   --rs-font-weight-normal: 400;
   --rs-font-weight-semibold: 700;
   --rs-font-weight-bold: 900;
-
   --font-size-header: 2.4rem;
   --font-size-body: 1.6rem;
   --font-size-caption: 1.3rem;
-
   --rs-space-micro: 2px;
   --rs-space-xsmall: 4px;
   --rs-space-small: 8px;
@@ -16,11 +13,9 @@
   --rs-space-large: 24px;
   --rs-space-xlarge: 36px;
   --rs-space-xxlarge: 40px;
-
   --rs-border-radius-micro: 2px;
   --rs-border-radius-standart: 4px;
   --rs-border-radius-full: 8px;
-
   --rs-button-primary-fill: 0, 149, 246;
   --rs-button-primary-hover: 24, 119, 242;
   --rs-button-primary-content: 255, 255, 255;
@@ -32,19 +27,20 @@
   color: var(--color-content);
   background-color: var(--fill-surface);
   color-scheme: light dark;
-
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
+
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 a {
   font-weight: var(--rs-font-weight-semibold);
-  color: #646cff;
+  color: #0095f6;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -53,7 +49,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizespeed;
   background-color: var(--fil-surface);
   font-size: var(--font-size-body);
   color: var(--color-content-primary);
@@ -69,7 +65,7 @@ body {
     --color-content-negative: red;
     --fill-surface: #111;
     --fill-input: #000;
-    --fill-on-surface: #222;
+    --fill-on-surface: #1b1b1b;
     --rs-color-separator: #333;
   }
 
@@ -88,6 +84,7 @@ body {
     --fill-on-surface: #fff;
     --rs-color-separator: #ddd;
   }
+
   a:hover {
     color: #747bff;
   }
@@ -123,6 +120,34 @@ dd {
 
 h1{
   font-size: 2.4rem;
-  margin-bottom: var(--rs-space-medium);
+  margin-bottom: var(--rs-space-large);
   color: var(--color-content-primary);
+}
+
+
+.text {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-content-primary);
+}
+
+.size-caption {
+  font-size: var(--font-size-caption);
+}
+
+.size-header {
+  font-size: var(--font-size-header);
+}
+
+.weight-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.tone-secondary {
+  color: var(--color-content-secondary);
+}
+
+.tone-negative {
+  color: var(--color-content-negative);
 }
