@@ -3,7 +3,7 @@ import SignInForm from '../widgets/sign-in-form';
 
 export default function SignInPage() {
   return (
-    <div className="sign-in-page">
+    <div className="fullscreen center">
       <Stack space="medium">
         <div className="surface">
           <div className="stretch">
@@ -11,12 +11,15 @@ export default function SignInPage() {
             <SignInForm />
           </div>
         </div>
+
         <div className="surface">
-          <div className="signup size-body-l">
-            Dont have an account?&nbsp;
-            <a href="https://localhost" className="link">
-              Sign up
-            </a>
+          <div className="center">
+            <div className="size-body-l">
+              Dont have an account?&nbsp;
+              <a href="https://localhost" className="link">
+                Sign up
+              </a>
+            </div>
           </div>
         </div>
       </Stack>

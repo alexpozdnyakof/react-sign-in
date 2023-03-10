@@ -1,5 +1,6 @@
 :root {
-  --font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, helvetica, arial, sans-serif;
+  --font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
+    helvetica, arial, sans-serif;
   --rs-font-weight-normal: 400;
   --rs-font-weight-semibold: 600;
   --rs-font-weight-bold: 700;
@@ -17,7 +18,7 @@
   --rs-border-radius-micro: 2px;
   --rs-border-radius-standart: 4px;
   --rs-border-radius-full: 8px;
-  --rs-timing: ease-out .1s;
+  --rs-timing: ease-out 0.1s;
 
   font-family: var(--font-family);
   line-height: 1.5;
@@ -28,33 +29,8 @@
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizelegibility;
-
-  /* -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
   text-size-adjust: 100%;
 }
-
-.link {
-  font-weight: var(--rs-font-weight-semibold);
-  color: oklch(var(--rs-link-color));
-  text-decoration: inherit;
-  transition: color var(--rs-timing);
-}
-
-.link:hover {
-  color: oklch(var(--rs-link-color-hover));
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  text-rendering: optimizespeed;
-  background-color: var(--fil-surface);
-  font-size: var(--rs-font-size-body);
-  color: var(--color-content-primary);
-}
-
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -90,6 +66,28 @@ body {
   }
 }
 
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  text-rendering: optimizespeed;
+  background-color: var(--fil-surface);
+  font-size: var(--rs-font-size-body);
+  color: var(--color-content-primary);
+}
+
+.link {
+  font-weight: var(--rs-font-weight-semibold);
+  color: oklch(var(--rs-link-color));
+  text-decoration: inherit;
+  transition: color var(--rs-timing);
+}
+
+.link:hover {
+  color: oklch(var(--rs-link-color-hover));
+}
+
+
 input,
 button,
 textarea,
@@ -116,13 +114,11 @@ dd {
   margin: 0;
 }
 
-
-h1{
+h1 {
   font-size: var(--rs-font-size-header);
   margin-bottom: var(--rs-space-large);
   color: oklch(var(--rs-color-content-primary));
 }
-
 
 .text {
   font-family: var(--font-family);
@@ -165,4 +161,15 @@ h1{
 
 .weight-semi {
   font-weight: var(--rs-font-weight-semibold);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
 }

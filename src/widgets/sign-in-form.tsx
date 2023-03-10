@@ -16,8 +16,8 @@ export default function SignInForm() {
         </Stack>
         <Button>Log in</Button>
       </Stack>
-      <div className="signup">
-        <a href="#" className="link">
+      <div className="center">
+        <a href="https://localhost" className="link">
           Forgot password?
         </a>
       </div>
