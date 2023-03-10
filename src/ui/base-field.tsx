@@ -33,8 +33,8 @@ export default function FormField({
     <Stack space="xsmall">
       <div
         className={clsx([
-          styles['container'],
-          tone == 'negative' ? styles['tone_negative'] : null,
+          styles['input-container'],
+          tone == 'negative' ? 'border-negative' : null,
         ])}
       >
         {children({
@@ -43,18 +43,16 @@ export default function FormField({
           'aria-invalid': ariaInvalid,
         })}
         {label !== undefined && (
-          <div className={styles['label-container']}>
-            <label htmlFor={generatedId} className={styles['label']}>
-              {label}
-            </label>
-          </div>
+          <label htmlFor={generatedId} className={styles['label']}>
+            {label}
+          </label>
         )}
       </div>
       {message !== undefined && (
         <p
           className={clsx([
             styles['field-message'],
-            tone == 'negative' ? styles['field-message-negative'] : null,
+            tone == 'negative' ? 'color-negative' : null,
           ])}
           id={describedBy}
         >

@@ -2,24 +2,22 @@
   --webkit-appearance: none;
 
   font-family: inherit;
-  color: rgb(var(--rs-button-primary-content));
-  background-color: rgb(var(--rs-button-primary-fill));
-  background-color: oklch(67.94% 0.17 228.71);
-  transition: all .15s ease-in-out;
+  color: oklch(var(--rs-button-primary-content));
+  background-color: oklch(var(--rs-button-primary-fill));
   padding: calc( var(--rs-space-xsmall) + 1px) var(--rs-space-medium);
   border-radius: var(--rs-border-radius-full);
-  border: none;
   font-weight: var(--rs-font-weight-semibold);
-
+  border: none;
+  transition: all var(--rs-timing);
 }
 
 .button:hover,
 .button:focus{
-  background-color: oklch(60.94% 0.17 228.71);
+  background-color: oklch(var(--rs-button-primary-fill-hover));
 }
 
-button:focus,
-button:focus-visible {
+.button:focus,
+.button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 

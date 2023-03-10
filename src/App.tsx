@@ -9,12 +9,15 @@ function App() {
         <div className="surface">
           <div className="stretch">
             <h1> Welcome back</h1>
+            <SignInForm />
           </div>
-          <SignInForm />
         </div>
         <div className="surface">
-          <div className="signup">
-            Dont have an account?&nbsp;<a href="https://localhost">Sign up</a>
+          <div className="signup size-body-l">
+            Dont have an account?&nbsp;
+            <a href="https://localhost" className="link">
+              Sign up
+            </a>
           </div>
         </div>
       </Stack>
