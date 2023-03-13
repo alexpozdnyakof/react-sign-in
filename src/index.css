@@ -40,6 +40,7 @@
     --rs-color-border-negative: 62.8% 0.2577 29.2339;
     --rs-color-content-primary: 26.86% 0 0;
     --rs-color-content-secondary: 61% 0 0;
+    --rs-color-content-action: 62.9% 0.214 262.65;
     --rs-color-content-negative: 62.8% 0.2577 29.2339;
     --rs-button-primary-content: 100% 0 0;
     --rs-button-primary-fill: 62.9% 0.214 262.65;
@@ -57,6 +58,7 @@
     --rs-color-border-negative: 62.8% 0.2577 29.2339;
     --rs-color-content-primary: 100% 0 0;
     --rs-color-content-secondary: 61% 0 0;
+    --rs-color-content-action: 62.9% 0.214 262.65;
     --rs-color-content-negative: 62.8% 0.2577 29.2339;
     --rs-button-primary-content: 100% 0 0;
     --rs-button-primary-fill: 62.9% 0.214 262.65;

@@ -1,25 +1,43 @@
 .button {
   appearance: none;
   border: none;
-  color: oklch(var(--rs-button-primary-content));
-  background-color: oklch(var(--rs-button-primary-fill));
   padding: calc( var(--rs-space-xsmall) + 1px) var(--rs-space-medium);
   border-radius: var(--rs-border-radius-full);
   font-weight: var(--rs-font-weight-semibold);
   transition: all var(--rs-timing);
   font-size: var(--rs-font-size-body);
+  background-color: var(--rs-btn-idle-fill);
+  color: var(--rs-btn-idle-content);
 }
 
-.button:hover,
-.button:focus{
-  background-color: oklch(var(--rs-button-primary-fill-hover));
+.variant-primary {
+  --rs-btn-idle-fill: oklch(var(--rs-button-primary-fill));
+  --rs-btn-idle-content: oklch(var(--rs-button-primary-content));
+  --rs-btn-idle-fill-hover: oklch(var(--rs-button-primary-fill-hover));
+  --rs-btn-idle-content-hover: oklch(var(--rs-button-primary-content));
 }
 
-.button:focus,
-.button:focus-visible {
+.variant-secondary {
+  --rs-btn-idle-fill: transparent;
+  --rs-btn-idle-content: oklch(var(--rs-color-content-primary));
+  --rs-btn-idle-fill-hover: transparent;
+  --rs-btn-idle-content-hover: oklch(var(--rs-color-content-action));
+}
+
+.button:not(:disabled):hover,
+.button:not(:disabled):focus{
+  color: var(--rs-btn-idle-content-hover);
+  background-color: var(--rs-btn-idle-fill-hover);
+}
+
+.button:not(:disabled):focus,
+.button:not(:disabled):focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
 .button-content {
   width: 100%;
 }
+
+
+

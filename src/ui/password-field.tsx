@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/tabindex-no-positive */
 import { forwardRef, useState } from 'react';
+import Button from './button';
 import FormField, { ReusableFormFieldProps } from './form-field';
 import styles from './password-field.module.css';
 
@@ -10,8 +11,11 @@ const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
     { label, message, tone, placeholder = ' ', ...inputProps },
     ref,
   ) {
-    const [isShow, setShow] = useState<boolean>(false);
-    const toggleShow = () => setShow((x) => !x);
+    const [isVisible, setIsVisible] = useState<boolean>(false);
+    const toggleVisible = () => setIsVisible((x) => !x);
+
+    const derivedFieldType = isVisible ? 'text' : 'password';
+    const derivedButtonText = isVisible ? 'Hide' : 'Show';
 
     return (
       <FormField label={label} message={message} tone={tone}>
@@ -19,14 +23,16 @@ const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
           <>
             <input
               {...inputProps}
-              type={isShow ? 'text' : 'password'}
+              type={derivedFieldType}
               {...drilled}
               ref={ref}
               placeholder={placeholder}
             />
-            <button className={styles['button-show']} onClick={toggleShow}>
-              {isShow ? 'Hide' : 'Show'}
-            </button>
+            <div className={styles['button-show']}>
+              <Button onClick={toggleVisible} variant="secondary">
+                {derivedButtonText}
+              </Button>
+            </div>
           </>
         )}
       </FormField>

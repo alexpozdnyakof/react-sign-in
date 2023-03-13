@@ -44,6 +44,23 @@ describe('Button', () => {
     expect(btnElement).toHaveAttribute('type', 'submit');
   });
 
+  it('should have primary variant by default', () => {
+    render(<Button>Click</Button>);
+    const btnElement = screen.getByRole('button', { name: 'Click' });
+    expect(btnElement).toHaveClass('variant-primary');
+    expect(btnElement).not.toHaveClass('variant-secondary');
+  });
+
+  it('should accept secondary variant', () => {
+    const { rerender } = render(<Button>Click</Button>);
+    const btnElement = screen.getByRole('button', { name: 'Click' });
+    expect(btnElement).not.toHaveClass('variant-secondary');
+
+    rerender(<Button variant="secondary">Click</Button>);
+    expect(btnElement).not.toHaveClass('variant-primary');
+    expect(btnElement).toHaveClass('variant-secondary');
+  });
+
   it('should render with no a11y violations', async () => {
     const { container } = render(<Button>Click</Button>);
     const result = await axe(container);
