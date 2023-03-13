@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/tabindex-no-positive */
-import { forwardRef, useState } from 'react';
+import { forwardRef, useReducer } from 'react';
 import Button from './button';
 import FormField, { ReusableFormFieldProps } from './form-field';
 import styles from './password-field.module.css';
@@ -11,8 +10,7 @@ const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
     { label, message, tone, placeholder = ' ', ...inputProps },
     ref,
   ) {
-    const [isVisible, setIsVisible] = useState<boolean>(false);
-    const toggleVisible = () => setIsVisible((x) => !x);
+    const [isVisible, toggleVisible] = useReducer((x) => !x, false);
 
     const derivedFieldType = isVisible ? 'text' : 'password';
     const derivedButtonText = isVisible ? 'Hide' : 'Show';
