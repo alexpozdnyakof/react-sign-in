@@ -20,9 +20,9 @@
   --rs-border-radius-full: 8px;
   --rs-timing: ease-out 0.1s;
 
+  font-size: 62.5%;
   font-family: var(--font-family);
   line-height: 1.5;
-  font-size: 62.5%;
   font-weight: var(--rs-font-weight-normal);
   color: oklch(var(--rs-color-content-primary));
   background-color: oklch(var(--rs-fill-background));
@@ -70,10 +70,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  text-rendering: optimizespeed;
-  background-color: var(--fil-surface);
   font-size: var(--rs-font-size-body);
-  color: var(--color-content-primary);
 }
 
 .link {
@@ -116,8 +113,10 @@ dd {
 
 h1 {
   font-size: var(--rs-font-size-header);
+}
+
+.mb-large {
   margin-bottom: var(--rs-space-large);
-  color: oklch(var(--rs-color-content-primary));
 }
 
 .text {
@@ -172,4 +171,37 @@ h1 {
 .fullscreen {
   width: 100vw;
   height: 100vh;
+}
+
+.surface {
+  width: 100%;
+  border: 1px solid oklch(var(--rs-color-border-default));
+  border-radius: var(--rs-border-radius-full);
+  background-color: oklch(var(--rs-fill-on-background));
+  padding: var(--rs-space-xlarge) 0;
+}
+
+.stretch {
+  margin-left: var(--rs-space-xxlarge);
+  margin-right: var(--rs-space-xxlarge);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 0 0 auto;
+}
+
+.query-container {
+  container: card / inline-size;
+  width: 100%;
+}
+
+.card{
+  width: 350px;
+  margin: auto;
+}
+
+@container (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
 }

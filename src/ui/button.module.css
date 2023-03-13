@@ -1,13 +1,13 @@
 .button {
   appearance: none;
-  font-family: inherit;
+  border: none;
   color: oklch(var(--rs-button-primary-content));
   background-color: oklch(var(--rs-button-primary-fill));
   padding: calc( var(--rs-space-xsmall) + 1px) var(--rs-space-medium);
   border-radius: var(--rs-border-radius-full);
   font-weight: var(--rs-font-weight-semibold);
-  border: none;
   transition: all var(--rs-timing);
+  font-size: var(--rs-font-size-body);
 }
 
 .button:hover,
@@ -23,4 +23,3 @@
 .button-content {
   width: 100%;
 }
-

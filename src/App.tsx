@@ -1,4 +1,3 @@
-import './App.css';
 import SignInPage from './pages/sign-in-page';
 
 function App() {
