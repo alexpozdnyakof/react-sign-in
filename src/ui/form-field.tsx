@@ -7,16 +7,18 @@ type FormFieldProps = {
   tone?: 'normal' | 'negative';
   message?: React.ReactNode;
   label?: React.ReactNode;
+  placeholder?: string;
   children: (props: {
     id: string;
     'aria-describedby'?: string;
     'aria-invalid'?: boolean;
+    placeholder?: string;
   }) => React.ReactNode;
 };
 
 export type ReusableFormFieldProps = Omit<
   FormFieldProps,
-  'children' | 'className' | 'type'
+  'children' | 'className'
 > &
   Omit<React.ComponentProps<'input'>, 'className'>;
 
@@ -25,6 +27,7 @@ export default function FormField({
   message,
   label,
   children,
+  placeholder = ' ',
 }: FormFieldProps) {
   const generatedId = useId();
   const describedBy = `${generatedId}-message`;
@@ -41,6 +44,7 @@ export default function FormField({
           id: generatedId,
           'aria-describedby': describedBy,
           'aria-invalid': ariaInvalid,
+          placeholder,
         })}
 
         {label !== undefined && (

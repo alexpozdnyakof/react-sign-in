@@ -1,4 +1,4 @@
-import { Stack } from '../ui';
+import { PasswordField, Stack } from '../ui';
 import Button from '../ui/button';
 import TextField from '../ui/text-field';
 
@@ -12,7 +12,7 @@ export default function SignInForm() {
             tone="negative"
             message="Please fill this field"
           />
-          <TextField label="Password" type="password" />
+          <PasswordField label="Password" />
         </Stack>
         <Button>Log in</Button>
       </Stack>

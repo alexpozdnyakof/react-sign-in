@@ -41,7 +41,7 @@
   padding: calc(var(--rs-space-small) + 1px) 0 calc(var(--rs-space-small) - 1px) var(--rs-space-small);
 }
 
-.input-container > input:not(:placeholder-shown) + .label {
+.input-container > input:not(:placeholder-shown) ~ label {
   transform: translateY(-125%) scale(.9);
 }
 

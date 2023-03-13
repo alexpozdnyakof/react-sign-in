@@ -1,22 +1,26 @@
 import { forwardRef } from 'react';
 import FormField, { ReusableFormFieldProps } from './form-field';
-type TextFieldProps = ReusableFormFieldProps;
+
+type InputType = 'email' | 'text' | 'url' | 'search';
+
+type TextFieldProps = {
+  type?: InputType;
+} & Omit<ReusableFormFieldProps, 'type'>;
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   function TextField(
-    { label, message, tone, type = 'text', placeholder = ' ', ...inputProps },
+    { label, message, tone, type = 'text', placeholder, ...inputProps },
     ref,
   ) {
     return (
-      <FormField label={label} message={message} tone={tone}>
+      <FormField
+        label={label}
+        message={message}
+        tone={tone}
+        placeholder={placeholder}
+      >
         {(drilled) => (
-          <input
-            type={type}
-            ref={ref}
-            placeholder={placeholder}
-            {...inputProps}
-            {...drilled}
-          />
+          <input type={type} ref={ref} {...inputProps} {...drilled} />
         )}
       </FormField>
     );
