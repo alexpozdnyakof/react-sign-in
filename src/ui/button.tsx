@@ -7,14 +7,15 @@ type ButtonProps = {
 } & Omit<React.ComponentProps<'button'>, 'className'>;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { children, variant = 'primary', ...props },
+  { children, variant = 'primary', type = 'button', ...props },
   ref,
 ) {
   return (
     <button
-      className={clsx([styles['button'], styles[`variant-${variant}`]])}
       ref={ref}
+      type={type}
       {...props}
+      className={clsx([styles['button'], styles[`variant-${variant}`]])}
     >
       <div className={styles['button-content']}>{children}</div>
     </button>

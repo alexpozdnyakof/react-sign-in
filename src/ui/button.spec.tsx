@@ -28,6 +28,14 @@ describe('Button', () => {
     expect(onClick).toHaveBeenCalled();
   });
 
+  it('should have type="button" by default', () => {
+    render(<Button>Click</Button>);
+    expect(screen.getByRole('button', { name: 'Click' })).toHaveAttribute(
+      'type',
+      'button',
+    );
+  });
+
   it('should can be disabled', () => {
     render(<Button disabled>Click</Button>);
     expect(screen.getByRole('button', { name: 'Click' })).toHaveAttribute(
