@@ -1,21 +1,43 @@
+import { ApiLoginParams, login } from '../shared/api';
+import { useForm } from '../shared/hooks';
 import { PasswordField, Stack } from '../ui';
 import Button from '../ui/button';
 import TextField from '../ui/text-field';
 
 export default function SignInForm() {
+  const { errors, handleFormEvent } = useForm<ApiLoginParams>((form) => {
+    login(form)
+      .then((session) => console.log({ session }))
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
   return (
     <Stack space="large">
-      <Stack space="medium">
-        <Stack space="small">
-          <TextField
-            label="Phone number, username, or email"
-            tone="negative"
-            message="Please fill this field"
-          />
-          <PasswordField label="Password" />
+      <form onSubmit={handleFormEvent} onBlur={handleFormEvent} noValidate>
+        <Stack space="medium">
+          <Stack space="small">
+            <TextField
+              label="Email"
+              name="email"
+              type="email"
+              required
+              tone={errors.email ? 'negative' : 'normal'}
+              message={errors.email}
+            />
+            <PasswordField
+              label="Password"
+              name="password"
+              tone={errors.password ? 'negative' : 'normal'}
+              message={errors.password}
+              required
+              minLength={8}
+            />
+          </Stack>
+          <Button type="submit">Log in</Button>
         </Stack>
-        <Button>Log in</Button>
-      </Stack>
+      </form>
       <div className="center">
         <a href="https://localhost" className="link">
           Forgot password?
