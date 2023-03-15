@@ -69,6 +69,20 @@ describe('Button', () => {
     expect(btnElement).toHaveClass('variant-secondary');
   });
 
+
+  it('should set compact size', () => {
+    const { rerender } = render(<Button>Click</Button>);
+    const btnElement = screen.getByRole('button', { name: 'Click' });
+
+    expect(btnElement).not.toHaveClass('size-default');
+    expect(btnElement).not.toHaveClass('size-compact');
+
+    rerender(<Button size="compact">Click</Button>);
+
+    expect(btnElement).not.toHaveClass('size-default');
+    expect(btnElement).toHaveClass('size-compact');
+  });
+
   it('should render with no a11y violations', async () => {
     const { container } = render(<Button>Click</Button>);
     const result = await axe(container);

@@ -1,38 +1,44 @@
 .button {
   appearance: none;
   border: none;
-  padding: calc( var(--rs-space-xsmall) + 1px) var(--rs-space-medium);
+  padding: 14px 16px;
+  font-size: var(--rs-font-size-body-l);
+  line-height: 20px;
+  font-weight: 500;
   border-radius: var(--rs-border-radius-full);
-  font-weight: var(--rs-font-weight-semibold);
   transition: all var(--rs-timing);
-  font-size: var(--rs-font-size-body);
   background-color: var(--rs-btn-idle-fill);
-  color: var(--rs-btn-idle-content);
+  color: var(--rs-btn-idle-text);
 }
 
 .variant-primary {
-  --rs-btn-idle-fill: oklch(var(--rs-button-primary-fill));
-  --rs-btn-idle-content: oklch(var(--rs-button-primary-content));
-  --rs-btn-idle-fill-hover: oklch(var(--rs-button-primary-fill-hover));
-  --rs-btn-idle-content-hover: oklch(var(--rs-button-primary-content));
+  --rs-btn-idle-fill: var(--rs-btn-primary-idle-fill);
+  --rs-btn-idle-text: var(--rs-btn-primary-text);
+  --rs-btn-hover-fill: var(--rs-btn-primary-hover-fill);
+  --rs-btn-active-fill: var(--rs-btn-primary-active-fill);
 }
 
 .variant-secondary {
-  --rs-btn-idle-fill: transparent;
-  --rs-btn-idle-content: oklch(var(--rs-color-content-primary));
-  --rs-btn-idle-fill-hover: transparent;
-  --rs-btn-idle-content-hover: oklch(var(--rs-color-content-action));
+  --rs-btn-idle-fill: var(--rs-btn-secondary-idle-fill);
+  --rs-btn-idle-text: var(--rs-btn-secondary-text);
+  --rs-btn-hover-fill: var(--rs-btn-secondary-hover-fill);
+  --rs-btn-active-fill: var(--rs-btn-secondary-active-fill);
+}
+
+.size-compact{
+  width: 100%;
+  padding: 10px 12px;
+  font-size: var(--rs-font-size-body);
+  line-height: 16px;
 }
 
 .button:not(:disabled):hover,
 .button:not(:disabled):focus{
-  color: var(--rs-btn-idle-content-hover);
-  background-color: var(--rs-btn-idle-fill-hover);
+  background-color: var(--rs-btn-hover-fill);
 }
 
-.button:not(:disabled):focus,
-.button:not(:disabled):focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.button:not(:disabled):active {
+  background-color: var(--rs-btn-active-fill);
 }
 
 .button-content {

@@ -27,7 +27,11 @@ const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
               placeholder={placeholder}
             />
             <div className={styles['button-show']}>
-              <Button onClick={toggleVisible} variant="secondary">
+              <Button
+                onClick={toggleVisible}
+                variant="secondary"
+                size="compact"
+              >
                 {derivedButtonText}
               </Button>
             </div>

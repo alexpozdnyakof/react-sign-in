@@ -37,7 +37,7 @@ export default function SignInForm() {
               minLength={8}
             />
           </Stack>
-          <Button type="submit">Log in</Button>
+          <Button type="submit">Continue</Button>
         </Stack>
       </form>
       <div className="center">

@@ -8,8 +8,8 @@ export default function SignInPage() {
         <Stack space="medium">
           <div className="surface card">
             <div className="stretch">
-              <div className="size-header mb-large weight-semi">
-                Welcome back
+              <div className="size-header mb-large lh-125">
+                Enter your email and password to continue
               </div>
               <SignInForm />
             </div>

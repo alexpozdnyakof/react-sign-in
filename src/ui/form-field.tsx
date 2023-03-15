@@ -37,7 +37,7 @@ export default function FormField({
       <div
         className={clsx([
           styles['input-container'],
-          tone == 'negative' ? 'border-negative' : null,
+          tone == 'negative' ? styles['border-negative'] : null,
         ])}
       >
         {children({
@@ -57,7 +57,7 @@ export default function FormField({
         <p
           className={clsx([
             styles['field-message'],
-            tone == 'negative' ? 'color-negative' : null,
+            tone == 'negative' ? styles['tone-negative'] : null,
           ])}
           id={describedBy}
         >
