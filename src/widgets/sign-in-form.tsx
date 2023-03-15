@@ -1,3 +1,4 @@
+import { loginAction, useAppState } from '../context';
 import { ApiLoginParams, login } from '../shared/api';
 import { useForm } from '../shared/hooks';
 import { PasswordField, Stack } from '../ui';
@@ -5,9 +6,10 @@ import Button from '../ui/button';
 import TextField from '../ui/text-field';
 
 export default function SignInForm() {
+  const { dispatch } = useAppState();
   const { errors, handleFormEvent } = useForm<ApiLoginParams>((form) => {
     login(form)
-      .then((session) => console.log({ session }))
+      .then((session) => dispatch(loginAction(session)))
       .catch((error) => {
         console.log(error);
       });
