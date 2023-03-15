@@ -53,7 +53,7 @@ export default function FormField({
           </label>
         )}
       </div>
-      {message !== undefined && (
+      {message && (
         <p
           className={clsx([
             styles['field-message'],
