@@ -1,4 +1,5 @@
 import { useAppState } from './context';
+import HomePage from './pages/home-page';
 import SignInPage from './pages/sign-in-page';
 
 function App() {
@@ -6,11 +7,7 @@ function App() {
   return (
     <>
       {!state.session && <SignInPage />}
-      {state.session && (
-        <div className="fullscreen center">
-          <h1>Hello Again!</h1>
-        </div>
-      )}
+      {state.session && <HomePage />}
     </>
   );
 }
