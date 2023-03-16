@@ -1,0 +1,18 @@
+.link {
+  color: oklch(var(--rs-link-color-idle));
+  text-decoration: none;
+  transition: color var(--rs-timing);
+  background-image: linear-gradient(transparent calc(100% - 1px), var(--rs-link-color-underline) 1px), linear-gradient(transparent calc(100% - 1px), var(--rs-color-content-primary) 1px);
+}
+
+.link:hover {
+  color: var(--rs-link-color-hover);
+}
+
+.link:visited {
+  color: var(--rs-link-color-visited);
+}
+
+.link:active {
+  color: var(--rs-link-color-active);
+}

@@ -1,7 +1,7 @@
 import { loginAction, useAppState } from '../context';
 import { ApiLoginParams, login } from '../shared/api';
 import { useForm } from '../shared/hooks';
-import { PasswordField, Stack } from '../ui';
+import { Link, PasswordField, Stack } from '../ui';
 import Button from '../ui/button';
 import TextField from '../ui/text-field';
 
@@ -41,9 +41,7 @@ export default function SignInForm() {
         </Stack>
       </form>
       <div className="center">
-        <a href="https://localhost" className="link">
-          Forgot password?
-        </a>
+        <Link href="https://localhost">Forgot password?</Link>
       </div>
     </Stack>
   );

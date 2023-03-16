@@ -1,30 +1,26 @@
 :root {
-  --font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
-    helvetica, arial, sans-serif;
+  --font-family: system-ui, "Helvetica Neue", helvetica, arial, sans-serif;
   --rs-font-weight-normal: 400;
-  --rs-font-weight-semibold: 600;
-  --rs-font-weight-bold: 700;
+  --rs-font-weight-medium: 500;
   --rs-font-size-header: 2.4rem;
   --rs-font-size-body-l: 1.6rem;
   --rs-font-size-body: 1.4rem;
   --rs-font-size-caption: 1.2rem;
-  --rs-space-micro: 2px;
   --rs-space-xsmall: 4px;
   --rs-space-small: 8px;
   --rs-space-medium: 16px;
   --rs-space-large: 24px;
-  --rs-space-xlarge: 36px;
-  --rs-space-xxlarge: 40px;
-  --rs-border-radius-micro: 2px;
-  --rs-border-radius-standart: 4px;
-  --rs-border-radius-full: 8px;
+  --rs-border-radius: 8px;
   --rs-timing: ease-out 0.1s;
   --rs-palette-black: oklch(0% 0 0);
+  --rs-palette-black-alt: oklch(28% 0 0);
   --rs-palette-white: oklch(100% 0 0);
   --rs-palette-red: oklch(58% 0.228 30.54);
+  --rs-palette-gray900: oklch(19% 0 0);
   --rs-palette-gray700: oklch(32% 0 0);
   --rs-palette-gray600: oklch(44.5% 0 0);
   --rs-palette-gray500: oklch(53% 0 0);
+  --rs-palette-gray200: #e2e2e2;
   --rs-palette-gray100: oklch(95% 0 0);
   --rs-palette-gray50: oklch(97.31% 0 0);
 
@@ -33,7 +29,6 @@
   font-family: var(--font-family);
   line-height: 1.5;
   font-weight: var(--rs-font-weight-normal);
-  color: var(--rs-color-content-primary);
   background-color: var(--rs-fill-background);
   color-scheme: light dark;
   font-synthesis: none;
@@ -41,32 +36,31 @@
   text-size-adjust: 100%;
 }
 
-/* light theme */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --rs-fill-background: var(--rs-palette-white);
-    --rs-color-content-primary: var(--rs-palette-black);
+    --rs-fill-background: var(--rs-palette-gray900);
+    --rs-color-content-primary: var(--rs-palette-white);
     --rs-color-content-secondary: var(--rs-palette-gray600);
     --rs-color-content-tertiary: var(--rs-palette-gray500);
     --rs-color-content-negative: var(--rs-palette-red);
-    --rs-color-border-primary: var(--rs-palette-black);
+    --rs-color-border-primary: var(--rs-palette-gray200);
     --rs-color-border-negative: var(--rs-palette-red);
     --rs-link-color-idle: var(--rs-palette-black);
     --rs-link-color-hover: var(--rs-palette-gray600);
     --rs-link-color-visited: var(--rs-palette-gray700);
     --rs-link-color-active: var(--rs-palette-gray500);
     --rs-link-color-underline: var(--rs-palette-gray600);
-    --rs-input-idle-fill: var(--rs-palette-gray100);
-    --rs-input-focus-fill: var(--rs-palette-gray50);
-    --rs-btn-primary-idle-fill: var(--rs-palette-black);
-    --rs-btn-primary-text: var(--rs-palette-white);
-    --rs-btn-primary-hover-fill: var(--rs-palette-gray700);
-    --rs-btn-primary-active-fill: var(--rs-palette-gray600);
+    --rs-input-idle-fill: var(--rs-palette-black-alt);
+    --rs-input-focus-fill: var(--rs-palette-gray700);
+    --rs-btn-primary-idle-fill: var(--rs-palette-gray200);
+    --rs-btn-primary-text: var(--rs-palette-black);
+    --rs-btn-primary-hover-fill: var(--rs-palette-gray100);
+    --rs-btn-primary-active-fill: var(--rs-palette-gray200);
     --rs-btn-secondary-idle-fill: transparent;
-    --rs-btn-secondary-text: var(--rs-palette-black);
-    --rs-btn-secondary-hover-fill: var(--rs-palette-gray50);
-    --rs-btn-secondary-active-fill: var(--rs-palette-gray100);
+    --rs-btn-secondary-text: var(--rs-palette-white);
+    --rs-btn-secondary-hover-fill: var(--rs-palette-gray700);
+    --rs-btn-secondary-active-fill: var(--rs-palette-gray600);
   }
 }
 
@@ -101,29 +95,9 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-size: var(--rs-font-size-body);
+  font-size: var(--rs-font-size-body-l);
+  line-height: 1.5;
 }
-
-.link {
-  font-size: 1.6rem;
-  color: oklch(var(--rs-link-color-idle));
-  text-decoration: none;
-  transition: color var(--rs-timing);
-  background-image: linear-gradient(transparent calc(100% - 1px), var(--rs-link-color-underline) 1px), linear-gradient(transparent calc(100% - 1px), var(--rs-color-content-primary) 1px);
-}
-
-.link:hover {
-  color: var(--rs-link-color-hover);
-}
-
-.link:visited {
-  color: var(--rs-link-color-visited);
-}
-
-.link:active {
-  color: var(--rs-link-color-active);
-}
-
 
 input,
 button,
@@ -153,43 +127,11 @@ dd {
 
 h1 {
   font-size: var(--rs-font-size-header);
-}
-
-.mb-large {
-  margin-bottom: var(--rs-space-large);
-}
-
-.text {
-  font-family: var(--font-family);
-  font-size: var(--rs-font-size-body);
   font-weight: var(--rs-font-weight-normal);
-  color: oklch(var(--rs-color-content-primary));
 }
 
-.size-caption {
-  font-size: var(--rs-font-size-caption);
-}
-
-.size-header {
-  font-size: var(--rs-font-size-header);
-}
-
-.size-body-l {
-  font-size: var(--rs-font-size-body-l);
-}
-
-.weight-bold {
-  font-weight: var(--rs-font-weight-bold);
-}
-
-.tone-secondary {
-  color: var(--color-content-secondary);
-}
-
-
-
-.weight-semi {
-  font-weight: var(--rs-font-weight-semibold);
+h1, h2, h3, h4 {
+  line-height: 1.25;
 }
 
 .center {
@@ -203,56 +145,19 @@ h1 {
   height: 100vh;
 }
 
-.surface {
-  width: 100%;
-}
-
-.stretch {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  flex: 0 0 auto;
-}
-
 .query-container {
   container: card / inline-size;
   width: 100%;
 }
 
-.card{
-  width: 350px;
+.container {
+  width: 352px;
   margin: auto;
+  padding: 0 16px;
 }
 
 @container (max-width: 480px) {
-  .card {
+  .container {
     width: 100%;
   }
-}
-
-
-.topbar{
-  width: 100%;
-  height: 64px;
-  background-color: #FFF;
-  border-bottom: 1px solid oklch(var(--rs-color-border-default));
-}
-
-.topbar-inner{
-  display: flex;
-  align-items: center;
-  padding: 0 var(--rs-space-medium);
-  height: 100%;
-}
-
-.logo{
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: .015em;
-}
-
-
-.lh-125{
-  line-height: 1.25;
 }

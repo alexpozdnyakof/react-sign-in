@@ -4,10 +4,6 @@
   position: relative;
 }
 
-.space-micro > :not(:first-child) {
-  margin-top: var(--rs-space-micro);
-}
-
 .space-xsmall > :not(:first-child) {
   margin-top: var(--rs-space-xsmall);
 }
@@ -22,12 +18,4 @@
 
 .space-large > :not(:first-child) {
   margin-top: var(--rs-space-large);
-}
-
-.space-xlarge > :not(:first-child) {
-  margin-top: var(--rs-space-xlarge);
-}
-
-.space-xxlarge > :not(:first-child) {
-  margin-top: var(--rs-space-xxlarge);
 }

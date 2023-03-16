@@ -9,15 +9,7 @@ describe('Stack', () => {
   });
 
   it('should set space', () => {
-    const allowedSpaceValues = [
-      'micro',
-      'xsmall',
-      'small',
-      'medium',
-      'large',
-      'xlarge',
-      'xxlarge',
-    ] as const;
+    const allowedSpaceValues = ['xsmall', 'small', 'medium', 'large'] as const;
 
     const { rerender } = render(<Stack data-testId="stack" />);
     const stack = screen.getByTestId('stack');
@@ -26,8 +18,6 @@ describe('Stack', () => {
       'space-small',
       'space-medium',
       'space-large',
-      'space-xlarge',
-      'space-xxlarge',
     );
 
     allowedSpaceValues.forEach((space) => {

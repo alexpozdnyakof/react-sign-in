@@ -1,4 +1,5 @@
 .label {
+  color: var(--rs-color-content-tertiary);
   display: flex;
   font-size: var(--rs-font-size-body);
   line-height: 1;
@@ -9,38 +10,35 @@
   left: var(--rs-space-small);
   transform-origin: left top;
   transition: transform var(--rs-timing);
-  color: var(--rs-color-content-tertiary);
 }
 
 .field-message {
   font-size: var(--rs-font-size-caption);
-  padding-left: var(--rs-space-micro);
+  padding-left: var(--rs-space-xsmall);
 }
 
 .input-container {
   position: relative;
   width: 100%;
   border: 2px solid transparent;
-  border-radius: var(--rs-border-radius-full);
+  border-radius: var(--rs-border-radius);
   background-color: var(--rs-input-idle-fill);
   transition: transform, border-color var(--rs-timing);
   overflow: hidden;
 }
 
 .input-container > input {
-  color: var(--rs-color-content-primary);
-  flex: 1;
-  outline: none;
-  box-sizing: border-box;
-  width: 100%;
   background-color: transparent;
   border: none;
-  font-size: var(--font-size-caption) !important;
+  box-sizing: border-box;
+  color: var(--rs-color-content-primary);
+  font-size: var(--rs-font-size-body) !important;
+  flex: 1;
+  outline: none;
+  width: 100%;
   margin: 0;
   line-height: 20px;
-
-  /* padding: calc(var(--rs-space-medium) + 1px) 0 calc(var(--rs-space-medium) - 1px) var(--rs-space-medium);; */
-  padding: calc(12px + 2px) 0 calc(10px) 8px;
+  padding: calc(var(--rs-space-medium) - var(--rs-space-xsmall)) 0 calc(var(--rs-space-small) + 2px) var(--rs-space-small);
 }
 
 .input-container > input:not(:placeholder-shown) ~ label {
@@ -48,8 +46,7 @@
 }
 
 .input-container > input:not(:placeholder-shown) {
-  /* padding: calc(var(--rs-space-medium) - 2px) 0  var(--rs-space-micro) var(--rs-space-small); */
-  padding: 18px 0 6px 8px;
+  padding: calc(var(--rs-space-medium))  0 calc(var(--rs-space-small) - 2px) var(--rs-space-small);
 }
 
 .input-container:focus-within {

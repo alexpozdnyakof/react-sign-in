@@ -2,14 +2,7 @@ import clsx from 'clsx';
 import { ComponentProps, forwardRef, ReactNode } from 'react';
 import styles from './stack.module.css';
 
-type Space =
-  | 'micro'
-  | 'xsmall'
-  | 'small'
-  | 'medium'
-  | 'large'
-  | 'xlarge'
-  | 'xxlarge';
+type Space = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
 type StackProps = {
   children?: ReactNode;
