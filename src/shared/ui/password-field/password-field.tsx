@@ -1,6 +1,6 @@
 import { forwardRef, useReducer } from 'react';
-import Button from './button';
-import FormField, { ReusableFormFieldProps } from './form-field';
+import Button from '../button/button';
+import FormField, { ReusableFormFieldProps } from '../form-field/form-field';
 import styles from './password-field.module.css';
 
 type PasswordFieldProps = Omit<ReusableFormFieldProps, 'type'>;

@@ -1,5 +1,5 @@
 import { logoutAction, useAppState } from '../context';
-import { Button } from '../ui';
+import { Button } from '../shared/ui';
 
 export default function HomePage() {
   const { state, dispatch } = useAppState();

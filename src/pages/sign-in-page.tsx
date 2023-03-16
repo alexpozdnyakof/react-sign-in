@@ -1,4 +1,4 @@
-import { Link, Stack } from '../ui';
+import { Link, Stack } from '../shared/ui';
 import SignInForm from '../widgets/sign-in-form';
 
 export default function SignInPage() {

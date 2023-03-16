@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { forwardRef, ReactNode } from 'react';
 import styles from './button.module.css';
+
 type ButtonProps = {
   children?: ReactNode;
   variant?: 'primary' | 'secondary';

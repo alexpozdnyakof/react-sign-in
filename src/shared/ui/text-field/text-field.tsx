@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import FormField, { ReusableFormFieldProps } from './form-field';
+import FormField, { ReusableFormFieldProps } from '../form-field/form-field';
 
 type InputType = 'email' | 'text' | 'url' | 'search';
 

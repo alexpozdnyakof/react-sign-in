@@ -1,9 +1,7 @@
 import { loginAction, useAppState } from '../context';
 import { ApiLoginParams, login } from '../shared/api';
 import { useForm } from '../shared/hooks';
-import { Link, PasswordField, Stack } from '../ui';
-import Button from '../ui/button';
-import TextField from '../ui/text-field';
+import { TextField, Button, Link, PasswordField, Stack } from '../shared/ui';
 
 export default function SignInForm() {
   const { dispatch } = useAppState();

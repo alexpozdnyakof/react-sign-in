@@ -1,9 +1,9 @@
 import { useAppState } from './context';
-import HomePage from './pages/home-page';
-import SignInPage from './pages/sign-in-page';
+import { HomePage, SignInPage } from './pages';
 
 function App() {
   const { state } = useAppState();
+
   return (
     <>
       {!state.session && <SignInPage />}
