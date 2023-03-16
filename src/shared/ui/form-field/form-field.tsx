@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import styles from './form-field.module.css';
-import Stack from './stack';
+import Stack from '../stack/stack';
 
 type FormFieldProps = {
   tone?: 'normal' | 'negative';

@@ -1,8 +1,3 @@
-:root {
-	--spinner-color: oklch(100% 0 0);
-	--spinner-fill: oklch(var(--rs-fill-accent));
-}
-
 @keyframes spinner {
 	0% {
 		transform: rotate(0deg);
@@ -21,9 +16,9 @@
 }
 
 .tint {
-	fill: var(--spinner-color);
+	fill: var(--rs-spinner-tint);
 }
 
 .fill {
-	fill: var(--spinner-fill);
+	fill: var(--rs-spinner-fill);
 }

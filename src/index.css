@@ -12,6 +12,7 @@
   --rs-space-large: 24px;
   --rs-border-radius: 8px;
   --rs-timing: ease-out 0.1s;
+  --rs-palette-accent: oklch(66.64% 0.16 261.66);
   --rs-palette-black: oklch(0% 0 0);
   --rs-palette-black-alt: oklch(28% 0 0);
   --rs-palette-white: oklch(100% 0 0);
@@ -20,10 +21,9 @@
   --rs-palette-gray700: oklch(32% 0 0);
   --rs-palette-gray600: oklch(44.5% 0 0);
   --rs-palette-gray500: oklch(53% 0 0);
-  --rs-palette-gray200: #e2e2e2;
+  --rs-palette-gray200: oklch(91% 0 0);
   --rs-palette-gray100: oklch(95% 0 0);
   --rs-palette-gray50: oklch(97.31% 0 0);
-
 
   font-size: 62.5%;
   font-family: var(--font-family);
@@ -61,6 +61,8 @@
     --rs-btn-secondary-text: var(--rs-palette-white);
     --rs-btn-secondary-hover-fill: var(--rs-palette-gray700);
     --rs-btn-secondary-active-fill: var(--rs-palette-gray600);
+    --rs-spinner-fill: var(--rs-palette-gray700);
+    --rs-spinner-tint: var(--rs-palette-accent);
   }
 }
 
@@ -88,6 +90,8 @@
     --rs-btn-secondary-text: var(--rs-palette-black);
     --rs-btn-secondary-hover-fill: var(--rs-palette-gray50);
     --rs-btn-secondary-active-fill: var(--rs-palette-gray100);
+    --rs-spinner-fill: var(--rs-palette-gray100);
+    --rs-spinner-tint: var(--rs-palette-accent);
   }
 }
 
@@ -161,3 +165,4 @@ h1, h2, h3, h4 {
     width: 100%;
   }
 }
+

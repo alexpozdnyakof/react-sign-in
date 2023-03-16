@@ -1,16 +1,28 @@
+import { useReducer } from 'react';
 import { loginAction, useAppState } from '../context';
-import { ApiLoginParams, login } from '../shared/api';
+import { ApiLoginParams } from '../shared/api';
 import { useForm } from '../shared/hooks';
-import { TextField, Button, Link, PasswordField, Stack } from '../shared/ui';
+import {
+  Button,
+  Link,
+  PasswordField,
+  Spinner,
+  Stack,
+  TextField,
+} from '../shared/ui';
 
 export default function SignInForm() {
   const { dispatch } = useAppState();
-  const { errors, handleFormEvent } = useForm<ApiLoginParams>((form) => {
-    login(form)
+  const [loading, toggleLoading] = useReducer((loading) => !loading, false);
+  const { errors, handleFormEvent } = useForm<ApiLoginParams>((formValue) => {
+    toggleLoading();
+    fetch('/sign-in', { method: 'POST', body: JSON.stringify(formValue) })
+      .then((response) => response.json())
       .then((session) => dispatch(loginAction(session)))
       .catch((error) => {
         console.log(error);
-      });
+      })
+      .finally(() => toggleLoading());
   });
 
   return (
@@ -35,7 +47,9 @@ export default function SignInForm() {
               minLength={8}
             />
           </Stack>
-          <Button type="submit">Continue</Button>
+          <Button type="submit" disabled={loading}>
+            {loading ? <Spinner /> : 'Continue'}
+          </Button>
         </Stack>
       </form>
       <div className="center">

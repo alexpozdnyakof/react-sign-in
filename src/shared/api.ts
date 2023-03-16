@@ -10,11 +10,4 @@ export type ApiLoginParams = {
   password: string;
 };
 
-export function login({ email }: ApiLoginParams): Promise<ApiSessionResponse> {
-  return Promise.resolve({
-    id: 1,
-    username: email,
-    firstName: 'Alex',
-    lastName: 'Pozdnyakof',
-  });
-}
+
