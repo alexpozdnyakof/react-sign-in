@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import { useReducer } from 'react';
-import { loginAction, useAppState } from '../context';
+import { useAppState } from '../context';
+import { userActions } from '../entities/user';
 import { ApiLoginParams } from '../shared/api';
 import { useForm } from '../shared/hooks';
 import {
@@ -15,12 +16,12 @@ import {
 export default function SignInForm() {
   const { dispatch } = useAppState();
   const [loading, toggleLoading] = useReducer((loading) => !loading, false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { errors, handleFormEvent } = useForm<ApiLoginParams>((_formValue) => {
+
+  const { errors, handleFormEvent } = useForm<ApiLoginParams>(() => {
     toggleLoading();
     fetch('https://random-data-api.com/api/v2/users')
       .then((response) => response.json())
-      .then((session) => dispatch(loginAction(session)))
+      .then((session) => dispatch(userActions.login(session)))
       .catch((error) => {
         console.log(error);
       })

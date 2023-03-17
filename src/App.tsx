@@ -2,12 +2,14 @@ import { useAppState } from './context';
 import { HomePage, SignInPage } from './pages';
 
 function App() {
-  const { state } = useAppState();
+  const {
+    state: { userState },
+  } = useAppState();
 
   return (
     <>
-      {!state.session && <SignInPage />}
-      {state.session && <HomePage />}
+      {!userState.user && <SignInPage />}
+      {userState.user && <HomePage />}
     </>
   );
 }

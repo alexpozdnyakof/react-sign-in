@@ -3,51 +3,39 @@ import {
   Dispatch,
   PropsWithChildren,
   useContext,
+  useMemo,
   useReducer,
 } from 'react';
-import { ApiUser } from './shared/api';
+import {
+  UserAction,
+  userInitalState,
+  userReducer,
+  UserState,
+} from './entities/user';
+import { useCombine } from './shared/hooks';
 
 export type AppState = {
-  session: ApiUser | null;
+  userState: UserState;
 };
+
+type AppAction = UserAction;
 
 type ContextProps = {
   state: AppState;
-  dispatch: Dispatch<Action>;
-};
-
-const initialState = {
-  session: null,
+  dispatch: Dispatch<AppAction>;
 };
 
 const AppStateContext = createContext<ContextProps>({} as ContextProps);
 
-type Action =
-  | { type: 'login'; payload: ApiUser }
-  | {
-      type: 'logout';
-      payload: null;
-    };
-
-function rootReducer(state: AppState, action: Action): AppState {
-  switch (action.type) {
-    case 'login': {
-      return { ...state, session: action.payload };
-    }
-    case 'logout': {
-      return { ...state, session: null };
-    }
-    default: {
-      return { ...state };
-    }
-  }
-}
-
 export function AppStateProvider({ children }: PropsWithChildren) {
-  const [state, dispatch] = useReducer(rootReducer, initialState);
+  const [state, dispatch] = useCombine<AppState, AppAction>({
+    userState: useReducer(userReducer, userInitalState),
+  });
+
+  const store = useMemo(() => ({ state, dispatch }), [state]);
 
   return (
-    <AppStateContext.Provider value={{ state, dispatch }}>
+    <AppStateContext.Provider value={store}>
       {children}
     </AppStateContext.Provider>
   );
@@ -57,12 +45,3 @@ export function useAppState() {
   return useContext(AppStateContext);
 }
 
-export const loginAction = (payload: ApiUser): Action => ({
-  type: 'login',
-  payload,
-});
-
-export const logoutAction = (): Action => ({
-  type: 'logout',
-  payload: null,
-});
