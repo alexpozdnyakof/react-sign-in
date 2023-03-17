@@ -97,6 +97,7 @@
 
 html{
   height: fill-available;
+  min-height: -webkit-fill-available;
 }
 
 body {
@@ -106,6 +107,7 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   min-height: fill-available;
+  min-height: -webkit-fill-available;
 }
 
 
