@@ -31,7 +31,9 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
     "jsdom": "^21.1.0",
+    "lint-staged": "^13.2.0",
     "prettier": "^2.8.4",
     "stylelint": "^15.2.0",
     "stylelint-config-standard": "^30.0.1",
@@ -41,5 +43,18 @@
     "vite-plugin-stylelint": "^4.3.0",
     "vitest": "^0.29.2",
     "vitest-axe": "^0.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "yarn test",
+      "yarn test:e2e",
+      "git add"
+    ]
   }
 }
