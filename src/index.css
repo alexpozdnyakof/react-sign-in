@@ -95,13 +95,19 @@
   }
 }
 
+html{
+  height: fill-available;
+}
+
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
   font-size: var(--rs-font-size-body-l);
   line-height: 1.5;
+  min-height: 100vh;
+  min-height: fill-available;
 }
+
 
 input,
 button,
@@ -146,7 +152,7 @@ h1, h2, h3, h4 {
 
 .fullscreen {
   width: 100vw;
-  height: 100vh;
+  height: 100svh;
 }
 
 .query-container {
