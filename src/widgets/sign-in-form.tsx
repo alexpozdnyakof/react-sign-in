@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import { useReducer } from 'react';
 import { loginAction, useAppState } from '../context';
 import { ApiLoginParams } from '../shared/api';
@@ -14,9 +15,10 @@ import {
 export default function SignInForm() {
   const { dispatch } = useAppState();
   const [loading, toggleLoading] = useReducer((loading) => !loading, false);
-  const { errors, handleFormEvent } = useForm<ApiLoginParams>((formValue) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { errors, handleFormEvent } = useForm<ApiLoginParams>((_formValue) => {
     toggleLoading();
-    fetch('/sign-in', { method: 'POST', body: JSON.stringify(formValue) })
+    fetch('https://random-data-api.com/api/v2/users')
       .then((response) => response.json())
       .then((session) => dispatch(loginAction(session)))
       .catch((error) => {
@@ -37,6 +39,7 @@ export default function SignInForm() {
               required
               tone={errors.email ? 'negative' : 'normal'}
               message={errors.email}
+              autoFocus
             />
             <PasswordField
               label="Password"

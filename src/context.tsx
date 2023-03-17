@@ -5,10 +5,10 @@ import {
   useContext,
   useReducer,
 } from 'react';
-import { ApiSessionResponse } from './shared/api';
+import { ApiUser } from './shared/api';
 
 export type AppState = {
-  session: ApiSessionResponse | null;
+  session: ApiUser | null;
 };
 
 type ContextProps = {
@@ -23,7 +23,7 @@ const initialState = {
 const AppStateContext = createContext<ContextProps>({} as ContextProps);
 
 type Action =
-  | { type: 'login'; payload: ApiSessionResponse }
+  | { type: 'login'; payload: ApiUser }
   | {
       type: 'logout';
       payload: null;
@@ -57,7 +57,7 @@ export function useAppState() {
   return useContext(AppStateContext);
 }
 
-export const loginAction = (payload: ApiSessionResponse): Action => ({
+export const loginAction = (payload: ApiUser): Action => ({
   type: 'login',
   payload,
 });
