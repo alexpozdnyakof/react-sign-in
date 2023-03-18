@@ -1,5 +1,5 @@
 :root {
-  --font-family: system-ui, "Helvetica Neue", helvetica, arial, sans-serif;
+  --font-family: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
   --rs-font-weight-normal: 400;
   --rs-font-weight-medium: 500;
   --rs-font-size-header: 2.4rem;
@@ -97,7 +97,7 @@
 
 html{
   height: fill-available;
-  min-height: -webkit-fill-available;
+  min-height: fill-available;
 }
 
 body {
@@ -107,7 +107,6 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   min-height: fill-available;
-  min-height: -webkit-fill-available;
 }
 
 
