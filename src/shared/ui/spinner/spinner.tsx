@@ -12,6 +12,7 @@ export default function Spinner({ size = 24 }: Props) {
       height={size}
       viewBox="0 0 24 24"
       className={styles['svg']}
+      data-pw="spinner"
     >
       <g fill="none" fillRule="nonzero">
         <path

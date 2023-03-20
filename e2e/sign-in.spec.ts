@@ -103,10 +103,44 @@ test('valid form submitted to backend', async ({ page }) => {
   expect(signInRequestWasMade).toBeTruthy();
 });
 
-test('should show homepage after success login', async ({ page }) => {
+test('should show loader after valid form submission', async ({ page }) => {
+  const request = page.waitForRequest(
+    `https://random-data-api.com/api/v2/users`,
+  );
+  await expect(page.getByTestId('spinner')).not.toBeVisible();
+  await page.getByLabel('Email').type('username@gmail.com');
+  await page.getByLabel('Password').type('12345678');
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await request;
+
+  await expect(page.getByTestId('spinner')).toBeVisible();
+});
+
+test('should show error message for bad response', async ({ page }) => {
+  await page.route(`https://random-data-api.com/api/v2/users`, (route) =>
+    route.fulfill({
+      status: 400,
+    }),
+  );
   await page.getByLabel('Email').type('username@gmail.com');
   await page.getByLabel('Password').type('12345678');
   await page.getByRole('button', { name: 'Continue' }).click();
 
-  await expect(page.getByText('Logged in as')).toBeTruthy();
+  await expect(
+    page.getByText('❌ Login error. Please try again later'),
+  ).toBeVisible();
+});
+
+test('should show homepage after success login', async ({ page }) => {
+  const response = page.waitForResponse(
+    (response) =>
+      response.url() === `https://random-data-api.com/api/v2/users` &&
+      response.status() === 200,
+  );
+  await page.getByLabel('Email').type('username@gmail.com');
+  await page.getByLabel('Password').type('12345678');
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await response;
+
+  await expect(page.getByText('Logged in as')).toBeVisible();
 });

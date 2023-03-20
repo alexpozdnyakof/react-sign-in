@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import { useReducer } from 'react';
+import { useState } from 'react';
 import { useAppState } from '../context';
 import { userActions } from '../entities/user';
 import { ApiLoginParams } from '../shared/api';
 import { useForm } from '../shared/hooks';
 import {
   Button,
+  FormMessage,
   Link,
   PasswordField,
   Spinner,
@@ -13,24 +14,28 @@ import {
   TextField,
 } from '../shared/ui';
 
+type FormState = 'idle' | 'pending' | 'error';
+
 export default function SignInForm() {
   const { dispatch } = useAppState();
-  const [loading, toggleLoading] = useReducer((loading) => !loading, false);
+  const [state, setState] = useState<FormState>('idle');
 
   const { errors, handleFormEvent } = useForm<ApiLoginParams>(() => {
-    toggleLoading();
-    fetch('https://random-data-api.com/api/v2/users')
-      .then((response) => response.json())
-      .then((session) => dispatch(userActions.login(session)))
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => toggleLoading());
+    setState('pending');
+    fetch(`https://random-data-api.com/api/v2/users`)
+      .then((response) => (response.ok ? response.json() : Promise.reject()))
+      .then((user) => (setState('idle'), dispatch(userActions.login(user))))
+      .catch(() => setState('error'));
   });
 
   return (
     <Stack space="large">
-      <form onSubmit={handleFormEvent} onBlur={handleFormEvent} noValidate>
+      <form
+        onSubmit={handleFormEvent}
+        onBlur={handleFormEvent}
+        noValidate
+        aria-label="Sign-in Form"
+      >
         <Stack space="medium">
           <Stack space="small">
             <TextField
@@ -51,13 +56,18 @@ export default function SignInForm() {
               minLength={8}
             />
           </Stack>
-          <Button type="submit" disabled={loading}>
-            {loading ? <Spinner /> : 'Continue'}
+          {state === 'error' && (
+            <FormMessage tone="negative">
+              ❌ Login error. Please try again later
+            </FormMessage>
+          )}
+          <Button type="submit" disabled={state === 'pending'}>
+            {state === 'pending' ? <Spinner /> : 'Continue'}
           </Button>
         </Stack>
       </form>
       <div className="center">
-        <Link href="https://localhost">Forgot password?</Link>
+        <Link href="/forgot">Forgot password?</Link>
       </div>
     </Stack>
   );
