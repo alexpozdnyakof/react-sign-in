@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { useId } from 'react';
 import styles from './form-field.module.css';
 import Stack from '../stack/stack';
+import FormMessage, { FormMessageProps } from '../form-message/form-message';
 
 type FormFieldProps = {
-  tone?: 'normal' | 'negative';
   message?: React.ReactNode;
   label?: React.ReactNode;
   placeholder?: string;
@@ -14,7 +14,7 @@ type FormFieldProps = {
     'aria-invalid'?: boolean;
     placeholder?: string;
   }) => React.ReactNode;
-};
+} & Pick<FormMessageProps, 'tone'>;
 
 export type ReusableFormFieldProps = Omit<
   FormFieldProps,
@@ -54,15 +54,9 @@ export default function FormField({
         )}
       </div>
       {message && (
-        <p
-          className={clsx([
-            styles['field-message'],
-            tone == 'negative' ? styles['tone-negative'] : null,
-          ])}
-          id={describedBy}
-        >
+        <FormMessage id={describedBy} tone={tone}>
           {message}
-        </p>
+        </FormMessage>
       )}
     </Stack>
   );

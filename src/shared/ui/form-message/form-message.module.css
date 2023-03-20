@@ -1,0 +1,8 @@
+.form-message {
+  font-size: var(--rs-font-size-caption);
+
+}
+
+.tone-negative {
+  color: var(--rs-color-content-negative);
+}
